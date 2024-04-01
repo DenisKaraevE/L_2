@@ -34,36 +34,37 @@ class Video {
     public String getData() {
         return data;
     }
-
 }
-class ThirdPartyYouTubeApiClient implements YouTubeApiClient {
 
+class ThirdPartyYouTubeApiClient implements YouTubeApiClient {
     public HashMap<String, Video> popularVideos() {
-        connectToServer("http://www.youtube.com");
+        connectToServer("http://www/youtube.com");
         return getRandomVideos();
     }
 
     public Video getVideo(String videoId) {
-        connectToServer("http://www.youtube.com/" + videoId);
+        connectToServer("http://youtube.com/" + videoId);
         return getSomeVideo(videoId);
     }
 
-    // ---------------------------------------------------------------------
-    // Fake methods to simulate network activity. They as slow as a real life.
+    // -------------------------------------------------------------
+    //MARK: - FAKE NETWORK METHODS
 
     private int random(int min, int max) {
         return min + (int) (Math.random() * ((max - min) + 1));
     }
 
     private void connectToServer(String server) {
-        System.out.print("Connecting to " + server + "... ");
+        System.out.print("Connecting to" + server + "...");
         System.out.println("Connected!");
     }
 
-    private Map<String, Video> getRandomVideos() {
-        System.out.print("Downloading populars... ");
+    private HashMap<String, Video> getRandomVideos() {
+        System.out.print("Downloading populars...");
 
         HashMap<String, Video> hmap = new HashMap<String, Video>();
+
+        //MARK: - Заполняем Map фейк данными
         hmap.put("catzzzzzzzzz", new Video("sadgahasgdas", "Catzzzz.avi"));
         hmap.put("mkafksangasj", new Video("mkafksangasj", "Dog play with ball.mp4"));
         hmap.put("dancesvideoo", new Video("asdfas3ffasd", "Dancing video.mpq"));
@@ -82,8 +83,8 @@ class ThirdPartyYouTubeApiClient implements YouTubeApiClient {
         System.out.println("Done!");
         return video;
     }
-
 }
+
 class CacheProxyYouTubeApiClient implements YouTubeApiClient {
 
     private YouTubeApiClient youtubeService;
