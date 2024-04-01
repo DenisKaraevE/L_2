@@ -13,10 +13,11 @@ class RoundHole {
     }
 
     public boolean fits(RoundStick stick) {
-        return this.getRadius() >= stick.getRadius()
+        return this.getRadius() >= stick.getRadius();
     }
 
 }
+
 class RoundStick {
 
     private int radius;
@@ -30,6 +31,7 @@ class RoundStick {
     }
 
 }
+
 class SquareStick {
 
     private int width;
@@ -42,6 +44,7 @@ class SquareStick {
         return width;
     }
 }
+
 class SquareStickAdapter extends RoundStick {
 
     private SquareStick stick;
@@ -53,7 +56,7 @@ class SquareStickAdapter extends RoundStick {
     public int getRadius() {
         // Вычислить половину диагонали квадратной палки по
         // теореме Пифагора.
-        return stick.getWidth() * Math.sqrt(2) / 2
+        return stick.getWidth() * Math.sqrt(2) / 2;
     }
 }
 
@@ -80,5 +83,11 @@ class AdapterService {
                 hole.fits(largeSquareStickAdapter)
         ); // FALSE
     }
+}
 
+public class Application {
+    public static void main(String[] args) {
+        AdapterService service = new AdapterService();
+        service.exec();
+    }
 }
