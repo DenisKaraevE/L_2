@@ -50,6 +50,7 @@ class SquareStickAdapter extends RoundStick {
     private SquareStick stick;
 
     public SquareStickAdapter(SquareStick stick) {
+        super(stick.getWidth());
         this.stick = stick;
     }
 
