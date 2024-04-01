@@ -179,5 +179,11 @@ class ProxyService {
         downloader.renderVideoPage("catzzzzzzzzz");
         downloader.renderVideoPage("someothervid");
     }
+}
 
+public class Application {
+    public static void main(String[] args) {
+        ProxyService proxy = new ProxyService();
+        proxy.exec();
+    }
 }
