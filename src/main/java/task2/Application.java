@@ -56,7 +56,7 @@ class SquareStickAdapter extends RoundStick {
     public int getRadius() {
         // Вычислить половину диагонали квадратной палки по
         // теореме Пифагора.
-        return stick.getWidth() * Math.sqrt(2) / 2;
+        return (int) (stick.getWidth() * Math.sqrt(2) / 2);
     }
 }
 
