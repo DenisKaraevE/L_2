@@ -188,6 +188,7 @@ class BridgeService {
 
     public void exec() {
         testDevice(new Tv());
+        testDevice(new Radio());
     }
 
     private void testDevice(Device device) {
