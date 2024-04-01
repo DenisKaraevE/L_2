@@ -140,7 +140,7 @@ class YouTubeVideoDownloader {
     }
 
     public void renderPopularVideos() {
-        Map<String, Video> list = api.popularVideos();
+        Map<String, Video> list = apiClient.popularVideos();
         System.out.println("\n-------------------------------");
         System.out.println("Most popular videos on YouTube (imagine fancy HTML)");
         for (Video video : list.values()) {
