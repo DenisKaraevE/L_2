@@ -8,6 +8,7 @@ interface YouTubeApiClient {
 
     Video getVideo(String videoId);
 }
+
 class Video {
 
     public final String id;
@@ -122,6 +123,7 @@ class CacheProxyYouTubeApiClient implements YouTubeApiClient {
         cacheAll.clear();
     }
 }
+
 class YouTubeVideoDownloader {
 
     private YouTubeApiClient apiClient;
