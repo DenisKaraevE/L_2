@@ -1,6 +1,9 @@
 package task1;
 
-public interface YouTubeApiClient {
+import java.util.HashMap;
+import java.util.Map;
+
+interface YouTubeApiClient {
     Map<String, Video> popularVideos();
 
     Video getVideo(String videoId);
@@ -46,9 +49,7 @@ class ThirdPartyYouTubeApiClient implements YouTubeApiClient {
     }
 
     // ---------------------------------------------------------------------
---
-    // Fake methods to simulate network activity. They as slow as a real
-    life.
+    // Fake methods to simulate network activity. They as slow as a real life.
 
     private int random(int min, int max) {
         return min + (int) (Math.random() * ((max - min) + 1));
@@ -64,14 +65,10 @@ class ThirdPartyYouTubeApiClient implements YouTubeApiClient {
 
         HashMap<String, Video> hmap = new HashMap<String, Video>();
         hmap.put("catzzzzzzzzz", new Video("sadgahasgdas", "Catzzzz.avi"));
-        hmap.put("mkafksangasj", new Video("mkafksangasj", "Dog play with
-                ball.mp4"));
-                hmap.put("dancesvideoo", new Video("asdfas3ffasd", "Dancing
-                        video.mpq"));
-                        hmap.put("dlsdk5jfslaf", new Video("dlsdk5jfslaf", "Barcelona vs
-                                RealM.mov"));
-                                hmap.put("3sdfgsd1j333", new Video("3sdfgsd1j333", "Programing
-                                        lesson#1.avi"));
+        hmap.put("mkafksangasj", new Video("mkafksangasj", "Dog play with ball.mp4"));
+        hmap.put("dancesvideoo", new Video("asdfas3ffasd", "Dancing video.mpq"));
+        hmap.put("dlsdk5jfslaf", new Video("dlsdk5jfslaf", "Barcelona vs RealM.mov"));
+        hmap.put("3sdfgsd1j333", new Video("3sdfgsd1j333", "Programing lesson#1.avi"));
 
         System.out.println("Done!");
         return hmap;
@@ -112,9 +109,8 @@ class CacheProxyYouTubeApiClient implements YouTubeApiClient {
             video = youtubeService.getVideo(videoId);
             cacheAll.put(videoId, video);
         } else {
-            System.out.println("Retrieved video '" + videoId + "' from
-                    cache.");
-                    video = cacheAll.get(videoId);
+            System.out.println("Retrieved video '" + videoId + "' from cache.");
+            video = cacheAll.get(videoId);
         }
 
         return video;
@@ -146,8 +142,7 @@ class YouTubeVideoDownloader {
     public void renderPopularVideos() {
         Map<String, Video> list = api.popularVideos();
         System.out.println("\n-------------------------------");
-        System.out.println("Most popular videos on YouTube (imagine fancy
-                HTML)");
+        System.out.println("Most popular videos on YouTube (imagine fancy HTML)");
         for (Video video : list.values()) {
             System.out.println("ID: " + video.getId() + " / Title: " +
                     video.getTitle());
